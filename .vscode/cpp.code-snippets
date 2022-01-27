@@ -9,7 +9,7 @@
 	"boilerpalte": {
 		"prefix": "boilerplate code",
 		"body": [
-			"#include <iostream>",
+			"#include<bits/stdc++.h>",
 			"using namespace std; \n",
 			"int main()",
 			"{",
