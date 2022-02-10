@@ -33,3 +33,5 @@
 *.app
 # ignore vs code 
 /.vscode
+.vscode/
+.vscode
