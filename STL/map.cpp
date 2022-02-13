@@ -13,6 +13,7 @@ int main(){
     // insert key as well as value int map 
 
     name_roll.insert( {1,"Aditya"});
+    name_roll.insert( {1,"Aditya"});
     name_roll[2] = "Mithu";
     name_roll[3] = "manish";
     name_roll[6] = "nigg";
