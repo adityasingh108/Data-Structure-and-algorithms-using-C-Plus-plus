@@ -141,36 +141,75 @@ Node *RecursiveLSearch(Node *p, int key)
     return RecursiveLSearch(p->next, key);
 }
 
+
+
+void insert(Node *head, int index , int value){
+    // check if index is valid or not
+    if(index < 0 || index > count(head)){ return;}
+ 
+    
+    // create a newNode and assign a value
+    Node *newNode  = new Node;
+    newNode->data = value;
+
+    if(index== 0){
+        newNode->next = first;
+        first  = newNode;
+    }
+
+    else{ // ckeck if index is greater than 0 the create a blank node and assign the data 
+        // make p pointer as first to ckeck which position insert a element
+        for (int i = 0; i < index-1; i++)
+         head = head->next;
+        
+        // create a link with new node to existing node
+        newNode->next = head->next;
+        head->next = newNode;
+        
+
+    }
+}
+
 int main()
 {
-    int array[] = {4, 5, 8, 6, 9, 8, 9, 6, 8};
+    int array[] = {4};
     int n = sizeof(array) / sizeof(int);
 
     Node *temp;
 
-    create(array, n);
-    cout << endl;
+    // create(array, n);
+    // // cout << endl;
+
+    // create a node 
+    insert(first,0,1);
+    insert(first,1,2);
+    insert(first,2,3);
+    insert(first,3,4);
+    insert(first,0,10);
+    insert(first,5,20);
+
     cout << "display linked List" << endl;
     display(first);
     cout << endl;
 
+/*
     cout << "Reverse linked List" << endl;
-    reverse(first);
+    reverse(linked_list);
     cout << endl;
 
     cout << "count linked List" << endl;
-    cout << count(first) << endl;
+    cout << count(linked_list) << endl;
 
     cout << "sum linked List" << endl;
-    cout << sum(first) << endl;
+    cout << sum(linked_list) << endl;
 
     cout << "Max  element linked List" << endl;
-    cout << max(first) << endl;
+    cout << max(linked_list) << endl;
 
     cout << "Min element in  linked List" << endl;
-    cout << min(first) << endl;
+    cout << min(linked_list) << endl;
 
-    temp = LSearch(first, 9);
+    temp = LSearch(linked_list, 9);
 
     if (temp)
     {
@@ -180,6 +219,6 @@ int main()
     {
         cout << "Element Not Found " << endl;
     }
-
+*/
     return 0;
 }
