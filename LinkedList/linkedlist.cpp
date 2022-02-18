@@ -170,15 +170,70 @@ void insert(Node *head, int index , int value){
     }
 }
 
+void insertAtEnd(int x){
+    Node *temp = new Node;
+    Node *last;
+    temp->data = x;
+    temp->next = NULL;
+
+    if(first == NULL){
+        first = temp;
+        last = temp;
+        return;
+    }
+    else{ 
+        last->next=temp;
+        last = temp;
+    }
+    
+
+
+
+
+
+}
+
+
+void insertSorted(Node *p, int value){
+     Node *temp = new Node;
+     temp->data = value;
+     temp->next = NULL;
+     Node *q = NULL;
+
+     if (p==NULL){
+        first = temp;
+     }
+     else{
+         while (p && p->data < value){
+             q = p;
+             p = p->next;
+         }
+         if(p == first){
+             temp->next = first;
+             first = temp;
+         }
+         else{
+             temp->next=q->next;
+             q->next=temp;
+         }
+     }
+}
+
+
+
+
+
+
+
 int main()
 {
-    int array[] = {4};
+    int array[] = {1,2,6,7,8};
     int n = sizeof(array) / sizeof(int);
 
     Node *temp;
-
-    // create(array, n);
-    // // cout << endl;
+    create(array, n);
+/*
+    // cout << endl;
 
     // create a node 
     insert(first,0,1);
@@ -187,7 +242,18 @@ int main()
     insert(first,3,4);
     insert(first,0,10);
     insert(first,5,20);
+    insertAtEnd(45);
+    insertAtEnd(46);
+    insertAtEnd(46);
+    insertAtEnd(46);
+    insertAtEnd(46);
+    insertAtEnd(46);
+    */
 
+
+    insertSorted(first,5);
+    insertSorted(first,0);
+    insertSorted(first,20);
     cout << "display linked List" << endl;
     display(first);
     cout << endl;
