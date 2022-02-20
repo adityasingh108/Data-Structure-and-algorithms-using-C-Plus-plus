@@ -219,19 +219,104 @@ void insertSorted(Node *p, int value){
      }
 }
 
+int deletNode(Node *p,int index){
+
+    Node *q= NULL;
+    int x = -1;
+
+    //check if the index is valid is or not
+    if( index <1||index > count(p))
+        return -1;
+
+    if(index == 1){
+        q= first;
+        x = first->data;
+        first = first->next;
+        delete q;
+        return x;
+    }    
+    else{
+        for (int i = 0; i < index -1; i++)
+        {
+            q= p;
+            p = p->next;
+        }
+        q->next = p->next;
+        x= p->data;
+        delete p;
+        return x;
+        
+    }
+}
+
+
+bool isSorted(Node *p){
+    int x = -32768;
+    Node *temp = p;
+
+    while(temp){
+        
+        if(temp->data < x)
+            return false;
+        else{
+            x = temp->data;
+            temp = temp->next;
+        }    
+    }
+    return true;
+}
+ 
+void sort(Node *head){ 
+priority_queue<int, vector<int>, greater<int>> pq;
+     Node* temp = head;
+    
+     while(temp!=NULL)
+     {
+          pq.push(temp->data);
+          temp = temp->next;
+     }
+     temp = head;
+     while(pq.empty()==false)
+     {
+         temp->data = pq.top();
+         pq.pop();
+         temp = temp->next;
+     }
+   }     
+
+void  Dublicate(Node *first){
+            
+                Node *p = first;
+                Node *q = first->next;
+    while (q != nullptr){
+        if(q->data != p->data){
+            p = q;
+            q = q->next;
+        }else{
+            p->next = q->next;
+            delete q;
+            q = p->next;
+        }
+    }
 
 
 
-
-
-
+}
 int main()
 {
-    int array[] = {1,2,6,7,8};
+    int array[] = {1,0,6,7,8};
     int n = sizeof(array) / sizeof(int);
 
     Node *temp;
     create(array, n);
+    sort(first);
+
+    cout<<"Linked list is Sorted or Not ::"<<isSorted(first)<<endl;
+
+    // cout<<deletNode(first,1)<<endl;
+    cout << "display linked List" << endl;
+    display(first);
+    cout << endl; 
 /*
     // cout << endl;
 
@@ -250,7 +335,7 @@ int main()
     insertAtEnd(46);
     */
 
-
+/*
     insertSorted(first,5);
     insertSorted(first,0);
     insertSorted(first,20);
