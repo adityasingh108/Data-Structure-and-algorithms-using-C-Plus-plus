@@ -89,6 +89,50 @@ void insert(Node *head, int index, int value)
         head->next = t;
     }
 }
+
+
+int deleteNode( Node *p,int index){
+
+    // create a variable to store data    
+    int x;
+
+    // check if the index is valid or not
+    if (index < 1 || index > length(p))
+        return -1;   
+
+   if(index == 1){
+       first = first->next;
+       if(first) 
+        first->prev = nullptr;
+        x = p->data;
+        delete p;
+
+   }
+   else{
+       for (int i = 0; i < index-1; i++)
+           p = p->next;
+       p->prev->next = p->next;
+       if(p->next)
+        p->next->prev = p->prev;
+        x= p->data;
+        delete p;
+   }
+   return x;
+}
+ 
+void reverse(Node *p){
+
+    Node *temp;
+    while(p){
+        temp = p->next;
+        p->next = p->prev;
+        p->prev = temp;
+        p = p->prev;
+        if(p != NULL && p->next==nullptr)
+            first = p;
+    }
+} 
+
 int main()
 {
     int array[] = {5, 10, 15, 20, 25};
@@ -101,6 +145,21 @@ int main()
     cout << endl;
 
     cout << "Length of the node is :" << length(first) << endl;
+    cout << endl;
 
-    return 0;
+    int x = deleteNode(first,5);
+
+    display(first);cout << endl;
+    cout <<"Deleted Node is :" << x<<endl;
+
+    cout << "Length of the node is :" << length(first) << endl;
+
+
+ 
+
+
+
+    reverse(first);
+    display(first);
+       return 0;
 }
