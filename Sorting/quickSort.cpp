@@ -80,7 +80,7 @@ int main()
         cout << arr[k] << " ";
     }
 
-    return 0;
+ 
     
     return 0;
 }
