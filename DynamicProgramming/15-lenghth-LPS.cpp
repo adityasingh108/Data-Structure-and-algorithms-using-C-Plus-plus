@@ -38,16 +38,15 @@ int longestPalinSubseq(string a) {
     int m = a.length();
     int n = b.length();
 
-    int insert = m -lcs(a, b , m ,n);
-    int deletion = n-lcs(a, b , m ,n);
+    
 
-    return  insert + deletion;
+    return lcs(a, b , m , n);;
         
     }
 
 int main()
 {
-    string text1 = "ab";
+    string text1 = "bbbab";
 
     cout<<longestPalinSubseq(text1); 
     

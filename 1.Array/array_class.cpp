@@ -131,7 +131,7 @@ int Array::binarySearch(int key)
         if (key == A[mid])
             return mid;
         else if (key < A[mid])
-            h = mid - 1;
+            h = mid - 1;    
         else
         {
             l = mid + 1;

@@ -2,30 +2,36 @@
 using namespace std; 
 
 
-// default argument parameter 
+// // default argument parameter 
 
-int volume(int l = 1,int b =1,int h =1){
-    return l*b*h;
-}
+// int volume(int l = 1,int b =1,int h =1){
+//     return l*b*h;
+// }
 
-// Function overloading
+// // Function overloading
 
-void printNAme(int x){
-    cout<<"The intenger value "<< x<<endl;
-}
-void printNAme(float x){
-    cout<<"The float value "<< x<<endl;
-}
+// void printNAme(int x){
+//     cout<<"The intenger value "<< x<<endl;
+// }
+// void printNAme(float x){
+//     cout<<"The float value "<< x<<endl;
+// }
 
 
 int main()
 {
-    // sum(4,6);
-    
-    // cout<<volume(5,5,5)<<endl;
-    int a = 45;
-    float b = 45.3;
+    int n = 5 , k , f1, f2, f;
+    if(n< 2)
+        return n;
+    else{
+        f1 = f2= 1; 
+        for(k = 2; k<n; k++){
+            f = f1+f2;
+            f2 = f1;
+            f1 = f;
 
-    printNAme(a);
-    printNAme(b);
+        }
+        cout<<f;
+    }    
+    
 }
