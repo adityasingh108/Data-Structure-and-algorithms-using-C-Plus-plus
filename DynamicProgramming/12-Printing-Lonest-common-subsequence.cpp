@@ -43,8 +43,8 @@ string printLCS(string text1 , string text2, int n , int m )
 
 int main()
 {
-    string text1 = "acbcf";
-    string text2 = "abcdaf";
+    string text1 = "ABCBDAB";
+    string text2 = "BDCABA";
     int n = text1.length();
     int m = text2.length();
 
